@@ -64,7 +64,7 @@ export function Navbar() {
   const navbarContent = (
     <nav className={cn(
       "max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 transition-all duration-500",
-      scrolled ? "h-24 md:h-32" : "h-40 md:h-64"
+      scrolled ? "h-20 md:h-24" : "h-32 md:h-52"
     )}>
       <Link href="/" className="flex items-center group py-0 shrink-0 z-50">
         <div className={cn(
@@ -81,7 +81,7 @@ export function Navbar() {
         </div>
       </Link>
 
-      <div className="hidden lg:flex items-center gap-1 -translate-y-5">
+      <div className="hidden lg:flex items-center gap-1">
         {navLinks.map((link) => (
           <Link
             key={link.href}
