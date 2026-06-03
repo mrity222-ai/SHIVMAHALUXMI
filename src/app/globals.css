@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 216 33% 97%; /* #F5F7FA */
+    --foreground: 224 64% 33%; /* #1E3A8A - Deep Blue */
+    --card: 0 0% 100%;
+    --card-foreground: 224 64% 33%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 64% 33%;
+    --primary: 224 64% 33%; /* #1E3A8A */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 224 64% 96%;
+    --secondary-foreground: 224 64% 33%;
+    --muted: 214 32% 91%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 25 100% 50%; /* #FF6A00 - Orange */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 25 100% 50%;
+    --radius: 1.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden font-body;
+    scroll-behavior: smooth;
+    line-height: 1.5;
+    width: 100%;
+  }
+
+  h1, h2, h3, h4 {
+    @apply tracking-tight font-headline text-primary;
+  }
+
+  h1 { 
+    @apply text-[clamp(2.25rem,6vw,4rem)] font-black leading-[0.95];
+  }
+
+  h2 { 
+    @apply text-[clamp(1.75rem,3.5vw,2.25rem)] font-bold leading-[1.1];
+  }
+
+  h3 { 
+    @apply text-[clamp(1.25rem,2.5vw,1.6rem)] font-bold leading-tight;
+  }
+
+  p {
+    @apply text-sm md:text-[0.95rem] text-foreground/80 leading-relaxed;
+  }
+
+  button, .btn-premium {
+    @apply font-bold transition-all active:scale-95;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-12 md:py-16 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .glass-morphism {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] overflow-hidden;
+    transform: translateZ(0);
+  }
+
+  .bento-card {
+    @apply bg-white border border-gray-100 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.12)] transition-all duration-500 overflow-hidden isolate hover:-translate-y-1 hover:border-primary/20;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

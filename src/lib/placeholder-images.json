@@ -1,0 +1,40 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-solar",
+      "description": "Professional rooftop solar installation for homes and businesses in Uttar Pradesh",
+      "imageUrl": "https://picsum.photos/seed/solar1/1920/1080",
+      "imageHint": "rooftop solar"
+    },
+    {
+      "id": "commercial-solar",
+      "description": "Commercial solar energy solutions provided in Noida, Ghaziabad, and Hapur",
+      "imageUrl": "/ser/3.png",
+      "imageHint": "commercial solar"
+    },
+    {
+      "id": "residential-solar",
+      "description": "Residential rooftop solar installer providing sustainable power in Meerut and Noida",
+      "imageUrl": "/ser/4.png",
+      "imageHint": "residential solar"
+    },
+    {
+      "id": "maintenance-solar",
+      "description": "Specialized solar maintenance services near you for peak performance in Ghaziabad",
+      "imageUrl": "/ser/2.jpeg",
+      "imageHint": "solar maintenance"
+    },
+    {
+      "id": "subsidy-help",
+      "description": "Expert government solar subsidy assistance for clients in Meerut and nearby areas",
+      "imageUrl": "/ser/1.jpeg",
+      "imageHint": "solar subsidy"
+    },
+    {
+      "id": "project-meerut",
+      "description": "High-performance solar plant company projects delivered in Uttar Pradesh",
+      "imageUrl": "https://picsum.photos/seed/meerut/800/600",
+      "imageHint": "solar plant"
+    }
+  ]
+}
