@@ -47,7 +47,7 @@ export function Footer() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
               
               <div className="lg:col-span-5 space-y-8">
-                <Link href="/" className="inline-block relative h-20 w-20 group transition-transform duration-500 hover:scale-105">
+                <Link href="/" className="inline-block relative h-32 w-32 group transition-transform duration-500 hover:scale-105">
                   <Image 
                     src="/Shivmahaluxmisolar.png" 
                     alt="SHIV MAHALUXMI SOLAR ENERGY"
