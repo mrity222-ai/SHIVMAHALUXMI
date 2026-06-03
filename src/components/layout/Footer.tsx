@@ -47,12 +47,12 @@ export function Footer() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
               
               <div className="lg:col-span-5 space-y-8">
-                <Link href="/" className="inline-block relative h-16 w-40 group transition-transform duration-500 hover:scale-105">
+                <Link href="/" className="inline-block relative h-16 w-16 group transition-transform duration-500 hover:scale-105 overflow-hidden">
                   <Image 
                     src="/Shivmahaluxmisolar.png" 
                     alt="SHIV MAHALUXMI SOLAR ENERGY"
                     fill
-                    className="object-contain brightness-0 invert"
+                    className="object-cover object-left brightness-0 invert"
                     priority
                   />
                 </Link>
@@ -146,7 +146,7 @@ export function Footer() {
                 
                 <div className="text-center md:text-left space-y-1">
                   <p className="text-[9px] font-black text-white/60 uppercase tracking-[0.1em]">
-                    © {year || 2025} SHIV MAHALUXMI SOLAR ENERGY.
+                    © {year || 2026} SHIV MAHALUXMI SOLAR ENERGY.
                   </p>
                   <p className="text-[8px] font-bold text-white/40 uppercase tracking-[0.2em]">
                     Developed by <a href="https://avedatechnologies.com/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">AVEDA TECHNOLOGIES</a>
