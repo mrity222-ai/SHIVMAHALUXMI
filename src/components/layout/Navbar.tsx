@@ -64,12 +64,12 @@ export function Navbar() {
   const navbarContent = (
     <nav className={cn(
       "max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 transition-all duration-500",
-      scrolled ? "h-20 md:h-28" : "h-32 md:h-48"
+      scrolled ? "h-24 md:h-32" : "h-40 md:h-64"
     )}>
       <Link href="/" className="flex items-center group py-0 shrink-0 z-50">
         <div className={cn(
           "group-hover:rotate-3 transition-all duration-500 shrink-0 relative",
-          scrolled ? "h-16 w-16 md:h-24 md:w-24" : "h-28 w-28 md:h-44 md:w-44"
+          scrolled ? "h-20 w-20 md:h-32 md:w-32" : "h-36 w-36 md:h-60 md:w-60"
         )}>
           <Image 
             src="/Shivmahaluxmisolar.png" 
@@ -81,7 +81,7 @@ export function Navbar() {
         </div>
       </Link>
 
-      <div className="hidden lg:flex items-center gap-1">
+      <div className="hidden lg:flex items-center gap-1 -translate-y-5">
         {navLinks.map((link) => (
           <Link
             key={link.href}
