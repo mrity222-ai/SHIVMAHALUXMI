@@ -47,12 +47,12 @@ export function Footer() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
               
               <div className="lg:col-span-5 space-y-8">
-                <Link href="/" className="inline-block relative h-16 w-16 group transition-transform duration-500 hover:scale-105 overflow-hidden">
+                <Link href="/" className="inline-block relative h-20 w-20 group transition-transform duration-500 hover:scale-105">
                   <Image 
                     src="/Shivmahaluxmisolar.png" 
                     alt="SHIV MAHALUXMI SOLAR ENERGY"
                     fill
-                    className="object-cover object-left brightness-0 invert"
+                    className="object-contain"
                     priority
                   />
                 </Link>
