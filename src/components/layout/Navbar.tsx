@@ -69,7 +69,7 @@ export function Navbar() {
       <Link href="/" className="flex items-center group py-0 shrink-0 z-50">
         <div className={cn(
           "group-hover:rotate-3 transition-all duration-500 shrink-0 relative",
-          scrolled ? "h-20 w-20 md:h-24 md:w-24" : "h-28 w-28 md:h-36 md:w-36"
+          scrolled ? "h-24 w-24 md:h-32 md:w-32" : "h-36 w-36 md:h-48 md:w-48"
         )}>
           <Image 
             src="/Shivmahaluxmisolar.png" 
@@ -137,7 +137,7 @@ export function Navbar() {
           >
             <div className="flex items-center justify-between mb-8">
               <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
-                <div className="relative h-20 w-20">
+                <div className="relative h-28 w-28">
                   <Image 
                     src="/Shivmahaluxmisolar.png" 
                     alt="SHIV MAHALUXMI SOLAR ENERGY Logo"
