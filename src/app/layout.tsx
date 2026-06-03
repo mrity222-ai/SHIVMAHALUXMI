@@ -4,6 +4,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Toaster } from '@/components/ui/toaster';
 import { Preloader } from '@/components/layout/Preloader';
+import { WhatsAppButton } from '@/components/ui/whatsapp-button';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
@@ -67,6 +68,7 @@ export default function RootLayout({
         <main className="min-h-screen">
           {children}
         </main>
+        <WhatsAppButton />
         <Footer />
         <Toaster />
       </body>
