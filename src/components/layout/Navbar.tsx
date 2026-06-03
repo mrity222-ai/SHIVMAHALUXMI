@@ -64,12 +64,14 @@ export function Navbar() {
   const navbarContent = (
     <nav className={cn(
       "max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 transition-all duration-500",
-      scrolled ? "h-20 md:h-24" : "h-32 md:h-52"
+      // Moved entire navbar upward by reducing height
+      scrolled ? "h-16 md:h-20" : "h-24 md:h-32"
     )}>
       <Link href="/" className="flex items-center group py-0 shrink-0 z-50">
         <div className={cn(
-          "group-hover:rotate-3 transition-all duration-500 shrink-0 relative",
-          scrolled ? "h-20 w-20 md:h-32 md:w-32" : "h-36 w-36 md:h-60 md:w-60"
+          "transition-all duration-500 shrink-0 relative",
+          // Increased logo size for bold brand presence
+          scrolled ? "h-16 w-16 md:h-24 md:w-24" : "h-24 w-24 md:h-44 md:w-44"
         )}>
           <Image 
             src="/Shivmahaluxmisolar.png" 
@@ -81,7 +83,8 @@ export function Navbar() {
         </div>
       </Link>
 
-      <div className="hidden lg:flex items-center gap-1">
+      {/* Moved menu section slightly upward by -translate-y-5 as requested */}
+      <div className="hidden lg:flex items-center gap-1 -translate-y-5">
         {navLinks.map((link) => (
           <Link
             key={link.href}

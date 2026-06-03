@@ -47,7 +47,8 @@ export function Footer() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
               
               <div className="lg:col-span-5 space-y-8">
-                <Link href="/" className="inline-block relative h-32 w-32 md:h-52 md:w-52 group transition-transform duration-500 hover:scale-105">
+                {/* Increased footer logo size for brand impact */}
+                <Link href="/" className="inline-block relative h-40 w-40 md:h-64 md:w-64 group transition-transform duration-500 hover:scale-105">
                   <Image 
                     src="/Shivmahaluxmisolar.png" 
                     alt="SHIV MAHALUXMI SOLAR ENERGY"
