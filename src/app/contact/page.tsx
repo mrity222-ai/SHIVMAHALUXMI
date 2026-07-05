@@ -1,8 +1,8 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageSquare, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -11,9 +11,12 @@ import { useToast } from '@/hooks/use-toast';
 
 export default function ContactPage() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    
     const form = e.target as HTMLFormElement;
     const rawData = Object.fromEntries(new FormData(form));
 
@@ -57,6 +60,8 @@ export default function ContactPage() {
         description: "Could not send request. Please try again or contact us via phone.",
       });
       console.error("Submission Error:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -113,6 +118,7 @@ export default function ContactPage() {
                     placeholder="Full Name" 
                     className="h-14 rounded-2xl border-muted bg-muted/5 focus:bg-white transition-all" 
                     required 
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div className="space-y-2">
@@ -122,6 +128,7 @@ export default function ContactPage() {
                     placeholder="Mobile Number" 
                     className="h-14 rounded-2xl border-muted bg-muted/5 focus:bg-white transition-all" 
                     required 
+                    disabled={isSubmitting}
                   />
                 </div>
               </div>
@@ -133,6 +140,7 @@ export default function ContactPage() {
                   placeholder="City or Region" 
                   className="h-14 rounded-2xl border-muted bg-muted/5 focus:bg-white transition-all" 
                   required 
+                  disabled={isSubmitting}
                 />
               </div>
 
@@ -140,7 +148,8 @@ export default function ContactPage() {
                 <Label className="font-semibold text-xs uppercase tracking-widest text-muted-foreground">System Type</Label>
                 <select 
                   name="systemType"
-                  className="w-full h-14 rounded-2xl border border-muted bg-muted/5 px-4 font-body focus:ring-2 focus:ring-primary outline-none transition-all"
+                  disabled={isSubmitting}
+                  className="w-full h-14 rounded-2xl border border-muted bg-muted/5 px-4 font-body focus:ring-2 focus:ring-primary outline-none transition-all disabled:opacity-50"
                 >
                   <option value="Residential Rooftop System" className="bg-white">Residential Rooftop System</option>
                   <option value="Commercial Grid Solution" className="bg-white">Commercial Grid Solution</option>
@@ -156,11 +165,25 @@ export default function ContactPage() {
                   placeholder="Describe your energy requirements (kW needed, etc.)" 
                   className="min-h-[150px] rounded-3xl border-muted bg-muted/5 focus:bg-white transition-all" 
                   required 
+                  disabled={isSubmitting}
                 />
               </div>
 
-              <Button type="submit" className="w-full h-16 text-lg font-bold rounded-full bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20">
-                Request Audit <Send className="ml-2 h-5 w-5" />
+              <Button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="w-full h-16 text-lg font-bold rounded-full bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 relative overflow-hidden"
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center gap-2">
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    Submitting...
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-2">
+                    Request Audit <Send className="h-5 w-5" />
+                  </span>
+                )}
               </Button>
             </form>
           </motion.div>
