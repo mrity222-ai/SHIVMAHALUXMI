@@ -17,22 +17,28 @@ export default function ContactPage() {
     const form = e.target as HTMLFormElement;
     const rawData = Object.fromEntries(new FormData(form));
 
-    // Mapping raw form fields to standardized names expected by Google Apps Script
+    // Standards alignment for Google Apps Script
+    // Prefixing numerical contact strings with ' to prevent spreadsheet formula (#ERROR!) interpretation
+    const phoneValue = String(rawData.phone || "");
+    const formattedContact = phoneValue.startsWith('+') ? `'${phoneValue}` : phoneValue;
+
     const formData = {
-      name: rawData.name,
-      contactNumber: rawData.phone, // Maps 'phone' input to 'contactNumber' payload key
-      serviceArea: rawData.serviceArea,
-      systemType: rawData.systemType,
-      propertyDetails: rawData.details // Maps 'details' textarea to 'propertyDetails' payload key
+      name: String(rawData.name || ""),
+      contactNumber: formattedContact,
+      serviceArea: String(rawData.serviceArea || ""),
+      systemType: String(rawData.systemType || ""),
+      propertyDetails: String(rawData.details || "")
     };
 
-    // Logging the data for verification as requested
+    // Verification logging
     console.log("Form Data:", formData);
 
     try {
-      // Integration with Google Apps Script endpoint provided by the user
+      // Integration with Google Apps Script endpoint
+      // Using text/plain to bypass CORS preflight restrictions
       await fetch("https://script.google.com/macros/s/AKfycbzX_HYlo0-ozhxVl-0PJUlkg3SJ4IzpSV17vqZF_b4Fw04olGzrQV_u-TQmUffR1_yS/exec", {
         method: "POST",
+        mode: "no-cors",
         headers: {
           "Content-Type": "text/plain;charset=utf-8",
         },
@@ -50,7 +56,7 @@ export default function ContactPage() {
         title: "Submission failed",
         description: "Could not send request. Please try again or contact us via phone.",
       });
-      console.error(error);
+      console.error("Submission Error:", error);
     }
   };
 
