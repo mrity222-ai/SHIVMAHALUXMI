@@ -15,7 +15,19 @@ export default function ContactPage() {
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
-    const formData = Object.fromEntries(new FormData(form));
+    const rawData = Object.fromEntries(new FormData(form));
+
+    // Mapping raw form fields to standardized names expected by Google Apps Script
+    const formData = {
+      name: rawData.name,
+      contactNumber: rawData.phone, // Maps 'phone' input to 'contactNumber' payload key
+      serviceArea: rawData.serviceArea,
+      systemType: rawData.systemType,
+      propertyDetails: rawData.details // Maps 'details' textarea to 'propertyDetails' payload key
+    };
+
+    // Logging the data for verification as requested
+    console.log("Form Data:", formData);
 
     try {
       // Integration with Google Apps Script endpoint provided by the user
